@@ -16,14 +16,14 @@ const initialState = {
   facebook: '',
   linkedin: '',
   youtube: '',
-  instagram: '',
+  instagram: ''
 };
 
 const ProfileForm = ({
   profile: { profile, loading },
   createProfile,
   getCurrentProfile,
-  history,
+  history
 }) => {
   const [formData, setFormData] = useState(initialState);
 
@@ -57,13 +57,13 @@ const ProfileForm = ({
     facebook,
     linkedin,
     youtube,
-    instagram,
+    instagram
   } = formData;
 
-  const onChange = (e) =>
+  const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = (e) => {
+  const onSubmit = e => {
     e.preventDefault();
     createProfile(formData, history, profile ? true : false);
   };
@@ -245,11 +245,11 @@ const ProfileForm = ({
 ProfileForm.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  profile: state.profile,
+const mapStateToProps = state => ({
+  profile: state.profile
 });
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(

@@ -12,12 +12,12 @@ const AddExperience = ({ addExperience, history }) => {
     from: '',
     to: '',
     current: false,
-    description: '',
+    description: ''
   });
 
   const { company, title, location, from, to, current, description } = formData;
 
-  const onChange = (e) =>
+  const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
@@ -30,7 +30,7 @@ const AddExperience = ({ addExperience, history }) => {
       <small>* = required field</small>
       <form
         className="form"
-        onSubmit={(e) => {
+        onSubmit={e => {
           e.preventDefault();
           addExperience(formData, history);
         }}
@@ -112,7 +112,7 @@ const AddExperience = ({ addExperience, history }) => {
 };
 
 AddExperience.propTypes = {
-  addExperience: PropTypes.func.isRequired,
+  addExperience: PropTypes.func.isRequired
 };
 
 export default connect(null, { addExperience })(AddExperience);
